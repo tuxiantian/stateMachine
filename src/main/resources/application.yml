@@ -1,0 +1,36 @@
+spring:
+  debug: true
+  application:
+    name: stateMachine
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: localhost
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: ''
+        min-idle: 0
+    password: ''
+    port: 6379
+    timeout: 0
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delete_flag # ?????????
+      logic-delete-value: 1 # ??????
+      logic-not-delete-value: 0 # ??????
+server:
+  port: 8082
+  shutdown: graceful
